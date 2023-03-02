@@ -1,0 +1,151 @@
+.FAQs {
+    min-height: 100vh;
+  }
+  .FAQs .FAQs-header:after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 1px;
+    background: gray;
+  }
+  
+  .FAQs-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .FAQs-title p {
+    /* margin-top: 0 !important; */
+    font-size: 1rem;
+  }
+
+  .FAQs-collapseHeader{
+    cursor: pointer;
+  }
+  
+  .arrow-button {
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .FAQs-header h1 {
+      font-size: 4rem;
+    }
+  
+    .FAQs .FAQs-header:after {
+      height: 3px;
+      width: 40%;
+    }
+  
+    .FAQs-title p {
+      margin-top: 0 !important;
+      font-size: 1.8rem;
+    }
+  
+    .question-content {
+      margin-top: 3rem;
+    }
+  
+    .question-content .col {
+      padding-left: 0 !important;
+    }
+  
+    .question-content .arrow-button:focus {
+      outline: none;
+    }
+  
+    .question-content .arrow-button img {
+      width: 35px;
+    }
+  
+    .question-content .FAQs-collapseHeader {
+      font-size: 1.5rem;
+      padding-left: 1.5rem;
+    }
+  
+    #FAQs-collapse-text {
+      font-size: 1rem !important;
+      margin: 1.5rem !important;
+      padding-left: 2.8rem !important;
+    }
+  }
+  
+  @media screen and (max-width: 540px) {
+    .FAQs-header h1 {
+      font-size: 3rem;
+    }
+  
+    .FAQs .FAQs-header:after {
+      width: 55%;
+    }
+  
+    .FAQs-title p {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media screen and (max-width: 411px) {
+    .FAQs-header h1 {
+      font-size: 2.8rem;
+    }
+  
+    .FAQs .FAQs-header:after {
+      width: 55%;
+    }
+  
+    .FAQs-title p {
+      font-size: 1rem;
+    }
+  
+    .question-content .FAQs-collapseHeader {
+      font-size: 1.2rem;
+    }
+  
+    #FAQs-collapse-text {
+      font-size: 0.9rem !important;
+    }
+  }
+  
+  
+  @media screen and (max-width: 375px) {
+      .FAQs-header h1 {
+        font-size: 2.5rem;
+      }
+      .FAQs-title p {
+        font-size: 0.9rem;
+      }
+    
+      .question-content .FAQs-collapseHeader {
+        font-size: 1.2rem;
+      }
+    
+      #FAQs-collapse-text {
+        font-size: 0.9rem !important;
+      }
+    }
+  
+  
+    
+  @media screen and (max-width: 280px) {
+      .FAQs-header h1 {
+        font-size: 2rem;
+      }
+      .FAQs-title p {
+        font-size: 0.7rem;
+      }
+    
+      .question-content .FAQs-collapseHeader {
+        font-size: 1rem;
+        padding-left: 1.2rem;
+      }
+    
+      #FAQs-collapse-text {
+        font-size: 0.8rem !important;
+        padding-left: 2.5rem !important;
+      }
+  
+  
+    }
