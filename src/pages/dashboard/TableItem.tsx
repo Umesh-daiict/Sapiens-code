@@ -1,4 +1,5 @@
 import { useMutation } from "@apollo/client";
+import { useMemo } from "react";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -21,21 +22,22 @@ const TableItem: React.FC<{
         console.log("error : ", e);
       });
   };
-
+  const width = useMemo(() => (window.innerWidth > 0) ? window.innerWidth : window.screen.width, [window.innerWidth, window.screen.width])
+  console.log("widt", width)
   return (
     <tr>
       <td>{value.id}</td>
-      <td>{new Date(value.attributes.createdAt).toLocaleString("en-IN")}</td>
-      <td>{value.attributes.Name}</td>
+      <td className="d-none d-md-table-cell" >{new Date(value.attributes.createdAt).toLocaleString("en-IN")}</td>
+      <td className="d-none d-md-table-cell" >{value.attributes.Name}</td>
       <td>{value.attributes.email}</td>
-      <td>{value.attributes.Source}</td>
-      <td>{new Date(value.attributes.updatedAt).toLocaleString("en-IN")}</td>
-      <td>{value.attributes.Status}</td>
+      <td className="d-none d-md-table-cell" >{value.attributes.Source}</td>
+      <td className="d-none d-md-table-cell" >{new Date(value.attributes.updatedAt).toLocaleString("en-IN")}</td>
+      <td className="d-none d-md-table-cell" >{value.attributes.Status}</td>
       <td>
         <DropdownButton
           variant={"light"}
           id="dropdown-basic-button"
-          title="More Options"
+          title={width > 700 ? "More Options" : ""}
         >
           <Dropdown.Item
             onClick={(e) => {
