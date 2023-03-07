@@ -45,14 +45,14 @@ export default function Home() {
         <Table responsive className="table table-hover mx-auto my-3">
           <thead>
             <tr>
-              <th className="d-none d-md-table-cell">Id</th>
+              <th>Id</th>
               <th className="d-none d-md-table-cell">Lead Date</th>
-              <th className="d-none d-md-table-cell" >Name</th>
-              <th >Email</th>
+              <th>Name</th>
+              <th>Email</th>
               <th className="d-none d-md-table-cell">Source</th>
               <th className="d-none d-md-table-cell">Last Updated</th>
               <th className="d-none d-md-table-cell">Status</th>
-              <th>More Options</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

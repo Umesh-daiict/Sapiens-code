@@ -1,10 +1,10 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-
+import "./SideNav.css";
 const Sidebar = ({ isVisible }) => {
   return (
     <>
-      {isVisible && (
+      <div className={`sidebar ${isVisible ? "visible" : ""}`}>
         <div className="vh-100 d-flex align-items-center bg-light">
           <Navbar
             bg="light"
@@ -53,7 +53,7 @@ const Sidebar = ({ isVisible }) => {
             </Container>
           </Navbar>
         </div>
-      )}
+      </div>
     </>
   );
 };

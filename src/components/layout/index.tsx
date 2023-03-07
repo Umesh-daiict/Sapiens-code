@@ -14,17 +14,11 @@ export default function Layout({ children }: any) {
         <Sidebar isVisible={isVisible} />
         <div className="flex-grow-1">
           <UnauthenticatedNav toggleSidebar={toggleSidebar} />
-          <div className="p-3">{children}</div>
+          <div className="p-md-3 p-sm-2" onClick={() => setIsVisible(false)}>
+            {children}
+          </div>
         </div>
       </div>
-      {/* <header>
-        <UnauthenticatedNav />
-      </header>
-      <main>
-        <div>
-          <>{children}</>
-        </div>
-      </main> */}
     </>
   );
 }

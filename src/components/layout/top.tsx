@@ -3,7 +3,12 @@ import { FaBars } from "react-icons/fa";
 
 export function UnauthenticatedNav({ toggleSidebar }) {
   return (
-    <Navbar bg="light" expand="md" className="py-3 border-bottom">
+    <Navbar
+      bg="light"
+      expand="md"
+      className="py-3 border-bottom zIndex-700"
+      style={{ zIndex: 700 }}
+    >
       <Container>
         <Button variant="secondary" onClick={toggleSidebar} className="mr-auto">
           <FaBars size={24} />

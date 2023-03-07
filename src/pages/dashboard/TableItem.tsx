@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -12,6 +12,7 @@ const TableItem: React.FC<{
   const [deleteLead] = useMutation(DELETE_LEADS);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [buttonText, setButtonText] = useState("More Options");
 
   const handleDelete = () => {
     deleteLead({ variables: { id: value.id } })
@@ -22,22 +23,33 @@ const TableItem: React.FC<{
         console.log("error : ", e);
       });
   };
-  const width = useMemo(() => (window.innerWidth > 0) ? window.innerWidth : window.screen.width, [window.innerWidth, window.screen.width])
-  console.log("widt", width)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setButtonText(window.innerWidth > 700 ? "More Options" : "");
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <tr>
       <td>{value.id}</td>
-      <td className="d-none d-md-table-cell" >{new Date(value.attributes.createdAt).toLocaleString("en-IN")}</td>
-      <td className="d-none d-md-table-cell" >{value.attributes.Name}</td>
+      <td className="d-none d-md-table-cell">
+        {new Date(value.attributes.createdAt).toLocaleString("en-IN")}
+      </td>
+      <td>{value.attributes.Name}</td>
       <td>{value.attributes.email}</td>
-      <td className="d-none d-md-table-cell" >{value.attributes.Source}</td>
-      <td className="d-none d-md-table-cell" >{new Date(value.attributes.updatedAt).toLocaleString("en-IN")}</td>
-      <td className="d-none d-md-table-cell" >{value.attributes.Status}</td>
+      <td className="d-none d-md-table-cell">{value.attributes.Source}</td>
+      <td className="d-none d-md-table-cell">
+        {new Date(value.attributes.updatedAt).toLocaleString("en-IN")}
+      </td>
+      <td className="d-none d-md-table-cell">{value.attributes.Status}</td>
       <td>
         <DropdownButton
           variant={"light"}
           id="dropdown-basic-button"
-          title={width > 700 ? "More Options" : ""}
+          title={buttonText}
         >
           <Dropdown.Item
             onClick={(e) => {

@@ -1,0 +1,28 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    z-index: 99;
+}
+
+.sidebar.visible {
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        left: -100%;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .sidebar.visible {
+        left: 0;
+    }
+
+    .sidebar:hover {
+        left: 0;
+    }
+}
